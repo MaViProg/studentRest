@@ -8,7 +8,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StudentRatingRepository extends JpaRepository<StudentRating, Integer> {
 
-    //Метод вычисляет рейтинг складывая фактические оценки и деля их на максимальный балл
+    /*
+    Метод вычисляет рейтинг, складывая фактические оценки и деля их на максимальный балл
+     */
     @Query(value = "SELECT (cast(SUM(g.grade) AS DECIMAL)  / c.max_grade) AS rating\n" +
             "FROM   students s\n" +
             "       join grade_student g\n" +

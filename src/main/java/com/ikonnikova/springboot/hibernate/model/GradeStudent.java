@@ -25,7 +25,7 @@ public class GradeStudent {
 
     /*
     Оценка обучающегося за занятие
-    Связб многие-к-одному: ссылка на обучающегося, ссылка на занятие, балл)
+    Связь многие-к-одному: ссылка на обучающегося, ссылка на занятие, балл
      */
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "student_id", referencedColumnName="id")

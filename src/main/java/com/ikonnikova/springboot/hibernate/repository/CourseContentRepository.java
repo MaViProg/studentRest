@@ -10,7 +10,9 @@ import java.util.List;
 @Repository
 public interface CourseContentRepository extends JpaRepository<CourseContents, Integer> {
 
-    //метод, который достает все курсы с заданной датой
+    /*
+    метод, который получает все курсы с заданной датой
+     */
     @Query(value = "SELECT * FROM coursecontents c WHERE c.date_time < now()",
             nativeQuery = true)
     List<CourseContents> getRecentCourses();

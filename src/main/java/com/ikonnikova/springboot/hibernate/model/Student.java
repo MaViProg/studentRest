@@ -62,7 +62,9 @@ public class Student {
     )
     private List<Course> courses;
 
-    //метод добавляет курс студенту
+    /*
+    метод добавляет курс студенту
+     */
     public void addCourseToStudent(Course course) {
         if(courses == null) {
             courses = new ArrayList<>();

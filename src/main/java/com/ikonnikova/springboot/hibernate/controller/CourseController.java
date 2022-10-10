@@ -1,9 +1,7 @@
 package com.ikonnikova.springboot.hibernate.controller;
 
 import com.ikonnikova.springboot.hibernate.model.Course;
-import com.ikonnikova.springboot.hibernate.repository.CourseContentRepository;
 import com.ikonnikova.springboot.hibernate.repository.CourseRepository;
-import com.ikonnikova.springboot.hibernate.repository.StudentRatingRepository;
 import com.ikonnikova.springboot.hibernate.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
@@ -56,14 +54,15 @@ public class CourseController {
 
     /*
     save course
-
      */
     @PostMapping("courses")
     public Course createCourse(@RequestBody Course course) {
         return courseRepository.save(course);
     }
 
-    //update course
+    /*
+    update course
+  */
     @PutMapping("/courses/{id}")
     public ResponseEntity<Course> updateCourse(@PathVariable(value = "id") int courseId,
                                                @RequestBody Course courseDetails) {
@@ -76,7 +75,9 @@ public class CourseController {
         return ResponseEntity.ok(this.courseRepository.save(course));
     }
 
-    //delete course
+    /*
+    delete course
+     */
     @DeleteMapping("course/{id}")
     public Map<String, Boolean> deleteCourse(@PathVariable(value = "id") int courseId) {
 
