@@ -1,7 +1,6 @@
 package com.ikonnikova.springboot.hibernate.controller;
 
 import com.ikonnikova.springboot.hibernate.model.Student;
-import com.ikonnikova.springboot.hibernate.exception.NotFoundResourceException;
 import com.ikonnikova.springboot.hibernate.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
