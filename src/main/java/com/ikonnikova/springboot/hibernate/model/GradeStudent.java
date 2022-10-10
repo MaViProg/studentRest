@@ -23,7 +23,7 @@ public class GradeStudent {
     @Column(name = "grade")
     private int grade;
 
-    /*
+    /**
     Оценка обучающегося за занятие
     Связь многие-к-одному: ссылка на обучающегося, ссылка на занятие, балл
      */

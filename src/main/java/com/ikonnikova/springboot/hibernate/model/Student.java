@@ -53,9 +53,10 @@ public class Student {
                 ", activity='" + activity + '\'' +
                 '}';
     }
-/*
-    Описываем связь между таблицами courses и students
- */
+
+    /**
+     * Описываем связь между таблицами courses и students
+     */
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "student_course"
@@ -64,11 +65,11 @@ public class Student {
     )
     private List<Course> courses;
 
-    /*
-    метод добавляет курс студенту
+    /**
+     * Метод добавляет курс студенту
      */
     public void addCourseToStudent(Course course) {
-        if(courses == null) {
+        if (courses == null) {
             courses = new ArrayList<>();
         }
         courses.add(course);

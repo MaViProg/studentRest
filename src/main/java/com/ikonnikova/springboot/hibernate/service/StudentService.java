@@ -6,7 +6,8 @@ import com.ikonnikova.springboot.hibernate.repository.StudentRatingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/*Вычисление рейтинга
+/**
+ * Вычисление рейтинга
 По всем занятиям курса, дата и время которых раньше текущего, берется сумма баллов за фактические оценки обучающегося
  и делятся на сумму максимальных баллов. Полученный процент (с точностью до сотых) - и есть рейтинговый балл.
  Курс считается зачтенным, если рейтинг >= 70%, а также по каждому занятию набрано не менее 70% от максимального балла.
@@ -24,7 +25,7 @@ public class StudentService {
     StudentRatingRepository studentRatingRepository;
 
 
-    /*
+    /**
     Метод вычисляет рейтинг студента
      */
     public Double getStudentRating(Long studentId) {
