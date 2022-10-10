@@ -1,10 +1,7 @@
 package com.ikonnikova.springboot.hibernate.service;
 
-import com.ikonnikova.springboot.hibernate.model.CourseContents;
-import com.ikonnikova.springboot.hibernate.model.Student;
 import com.ikonnikova.springboot.hibernate.model.StudentRating;
 import com.ikonnikova.springboot.hibernate.repository.CourseContentRepository;
-import com.ikonnikova.springboot.hibernate.repository.GradeStudentRepository;
 import com.ikonnikova.springboot.hibernate.repository.StudentRatingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

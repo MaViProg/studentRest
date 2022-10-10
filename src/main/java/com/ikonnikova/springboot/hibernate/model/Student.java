@@ -53,7 +53,9 @@ public class Student {
                 ", activity='" + activity + '\'' +
                 '}';
     }
-//описываем связь между таблицами courses и students
+/*
+    Описываем связь между таблицами courses и students
+ */
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "student_course"
