@@ -18,34 +18,39 @@ public class StudentController {
     @Autowired
     private StudentRepository studentRepository;
 
-    /*
+    /**
     get students
+    http://localhost:8080/api/v1/students
      */
-    @GetMapping("student")
+    @GetMapping("students")
     public List<Student> getAllStudents() {
         return this.studentRepository.findAll();
     }
 
-    /*
+    /**
     get student by id
+    http://localhost:8080/api/v1/student/1
      */
-    @GetMapping("students/{id}")
+    @GetMapping("student/{id}")
     public ResponseEntity<Student> getStudentById(@PathVariable(value = "id")
                                                   Long studentId) {
         Student student = studentRepository.findById(studentId)
                 .orElseThrow(() -> new ResourceNotFoundException("Student not found for this id :: " + studentId));
         return ResponseEntity.ok().body(student);
     }
-    /*
+
+    /**
     save student
+    http://localhost:8080/api/v1/students
      */
     @PostMapping("students")
     public Student createStudent(@RequestBody Student student) {
         return this.studentRepository.save(student);
     }
 
-    /*
+    /**
     update student
+     http://localhost:8080/api/v1/students/5
      */
     @PutMapping("/students/{id}")
     public ResponseEntity<Student> updateStudent(@PathVariable(value = "id") Long studentId,
@@ -59,8 +64,10 @@ public class StudentController {
         student.setActivity(studentDetails.isActivity());
         return ResponseEntity.ok(this.studentRepository.save(student));
     }
-    /*
+
+    /**
     delete student
+    http://localhost:8080/api/v1/students/1
      */
     @DeleteMapping("students/{id}")
     public Map<String, Boolean> deleteStudent(@PathVariable(value = "id") Long studentId) {

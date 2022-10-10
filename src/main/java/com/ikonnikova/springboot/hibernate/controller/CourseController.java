@@ -22,15 +22,15 @@ public class CourseController {
     @Autowired
     StudentService studentService;
 
-    /*
-    http://localhost:8080/api/v2/rating/1
+    /**
+     http://localhost:8080/api/v2/rating/2
      */
     @GetMapping("/rating/{id}")
     public Double getRating(@PathVariable(value = "id") long studentId) {
         return studentService.getStudentRating(studentId);
     }
 
-    /*
+    /**
     getCourses
     http://localhost:8080/api/v2/courses
      */
@@ -39,7 +39,7 @@ public class CourseController {
         return courseRepository.findAll();
     }
 
-    /*
+    /**
     get course by id
     http://localhost:8080/api/v2/courses/5
      */
@@ -52,16 +52,18 @@ public class CourseController {
     }
 
 
-    /*
+    /**
     save course
+     http://localhost:8080/api/v2/courses
      */
     @PostMapping("courses")
     public Course createCourse(@RequestBody Course course) {
         return courseRepository.save(course);
     }
 
-    /*
+    /**
     update course
+     http://localhost:8080/api/v2/courses/1
   */
     @PutMapping("/courses/{id}")
     public ResponseEntity<Course> updateCourse(@PathVariable(value = "id") int courseId,
@@ -75,14 +77,15 @@ public class CourseController {
         return ResponseEntity.ok(this.courseRepository.save(course));
     }
 
-    /*
+    /**
     delete course
+    http://localhost:8080/api/v2/course/1
      */
     @DeleteMapping("course/{id}")
     public Map<String, Boolean> deleteCourse(@PathVariable(value = "id") int courseId) {
 
         Course course = courseRepository.findById(courseId)
-                .orElseThrow(() -> new ResourceNotFoundException("Student not found for this id :: " + courseId));
+                .orElseThrow(() -> new ResourceNotFoundException("Course not found for this id :: " + courseId));
         this.courseRepository.delete(course);
 
         Map<String, Boolean> response = new HashMap<>();
